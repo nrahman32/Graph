@@ -16,6 +16,16 @@ void bellman_ford(ll x, ll n)
             dis[v] = min(dis[v], dis[u] + w);
         }
     }
-}
 
-// Add Negative Cycle ditection Part in main function
+    bool cycle = false;
+    for (auto e : edge)
+    {
+        ll u, v, w;
+        tie(u, v, w) = e;
+        if (dis[v] > dis[u] + w)
+        {
+            cycle = true;
+            break;
+        }
+    }
+}
